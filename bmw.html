@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        nav {
+            height: 80px;
+            width: 88%;
+            border-bottom: 2px solid white;
+            margin: auto;
+            display: flex;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            /* z-index: 10; */
+
+        }
+
+        img {
+            height: 60px;
+            width: 60px;
+            margin-top: 14px;
+        }
+
+        #headitems {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 45%;
+            flex-basis: 45%;
+
+        }
+
+        a {
+            text-decoration: none;
+            position: relative;
+            display: inline-block;
+            font-size: 18px;
+            color: white;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        a::after {
+            content: "";
+            width: 0%;
+            height: 4px;
+            position: absolute;
+            left: 0px;
+            top: 48px;
+            bottom: 0px;
+            background-color: rgb(68, 68, 184);
+            transition: width 0s linear;
+        }
+
+        a:hover::after {
+            width: 100%;
+        }
+
+        #user_actions {
+            display: flex;
+            align-items: center;
+            flex-basis: 20%;
+            /* padding-left: 100px; */
+            margin-left: 350px;
+            justify-content: space-evenly;
+            position: relative;
+            color: white;
+        }
+
+        #picture {
+            margin-top: -30px;
+        }
+
+        #picture img {
+            width: 100%;
+            height: 80%;
+            position: relative;
+
+        }
+
+        #discover {
+            height: 50px;
+            width: 170px;
+            color: white;
+            text-align: center;
+            position: absolute;
+            top: 90%;
+            left: 8%;
+            transform: translateY(-50%);
+            background-color: #1c69d4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: system-ui, sans-serif;
+            cursor: pointer;
+        }
+
+
+        #call {
+            height: 50px;
+            width: 50px;
+            background-color: white;
+            border-radius: 50%;
+            padding-left: 15px;
+            padding-top: 15px;
+            position: fixed;
+            top: 90%;
+            left: 93%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            z-index: 10;
+
+        }
+
+        #call:hover {
+            background-color: #1c69d4;
+            color: white;
+        }
+
+        span {
+            height: 80px;
+            width: 50px;
+            padding-right: 100px;
+            border: 1px solid black;
+            background-color: #1c69d4;
+            top: 90%;
+            left: 93%;
+            transform: translateY(-50%);
+            padding-left: 15px;
+            padding-top: 15px;
+        }
+
+        .find>h1 {
+            text-align: center;
+            font-size: 30px;
+            margin-top: 30px;
+        }
+
+        .find {
+            /* height: 100px; */
+            width: 80%;
+            /* background-color: blue; */
+            margin: auto;
+        }
+
+        .bmwicons {
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 60px;
+            /* padding-left: 200px; */
+        }
+
+        .inf>h3 {
+            /* margin-top: 120px; */
+            font-size: 23px;
+            /* padding-right: 200px; */
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .inf {
+            margin-left: 20px;
+            margin-top: 30px;
+            text-align: center;
+            display: flex;
+            margin-right: 20px;
+            justify-content: space-evenly;
+
+        }
+
+        .infbox {
+            height: 50px;
+            width: 150px;
+            border: 2px solid black;
+            display: flex;
+            text-align: center;
+            padding-top: 15px;
+            padding-left: 30px;
+            margin-left: 200px;
+            margin-top: 30px;
+            font-size: 18px;
+        }
+
+        .infbox1 {
+            height: 50px;
+            width: 150px;
+            border: 2px solid black;
+            display: flex;
+            text-align: center;
+            padding-top: 4px;
+            padding-left: 8px;
+            font-size: 18px;
+            margin-top: 10px;
+            margin-left: 550px;
+            /* margin-bottom: 200px; */
+            margin-top: -50px;
+
+        }
+
+        .infbox2 {
+            height: 50px;
+            width: 150px;
+            border: 2px solid black;
+            display: flex;
+            text-align: center;
+            padding-top: 10px;
+            padding-left: 8px;
+            font-size: 18px;
+            margin-top: 10px;
+            margin-left: 900px;
+            margin-top: -50px;
+
+        }
+
+        video {
+            width: 100%;
+            height: 80%;
+            position: absolute;
+            margin-top: 40px;
+            z-index: 6;
+            object-fit: cover;
+        }
+
+        #videotext {
+            position: relative;
+            margin-top: 120px;
+            color: white;
+            z-index: 10;
+            letter-spacing: 10px;
+            margin-left: 100px;
+        }
+
+        #videotext1 {
+            color: white;
+            position: relative;
+            margin-top: 10px;
+            z-index: 10;
+            margin-left: 100px;
+            font-size: 150px;
+            transform: scaley(0.9);
+            line-height: 0.7;
+        }
+
+        #videotext2 {
+            color: white;
+            position: relative;
+            margin-top: 10px;
+            z-index: 10;
+            margin-left: 100px;
+            font-size: 15px;
+        }
+
+        #skip {
+            color: white;
+            position: relative;
+            margin-top: 30px;
+            z-index: 10;
+            margin-left: 100px;
+            font-size: 20px;
+            background-color: #1c69d4;
+            height: 50px;
+            width: 150px;
+            text-align: center;
+            padding-top: 15px;
+        }
+
+        #skip:hover {
+            background-color: #042553;
+        }
+
+        .luxury {
+            height: 100vh;
+            width: 100vw;
+            position: absolute;
+            margin-top: 40px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .luxury img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .lux{
+            position: relative;
+            margin-top: 400px;
+            color: white;
+            z-index: 10;
+            letter-spacing: 6px;
+            margin-left:50px;
+            font-size: 25px;
+            font-style: bold;
+        }
+        .luxu{
+            position: relative;
+            margin-top: 5px;
+            color: white;
+            z-index: 10;
+            letter-spacing: 3px;
+            margin-left:50px;
+            font-size: 22px;
+            font-style: bold;
+        }
+        .luxur{
+            position: relative;
+            margin-top: 20px;
+            color: white;
+            /* z-index: 10; */
+            /* letter-spacing: 3px; */
+            margin-left:50px;
+            font-size: 18px;
+            font-style: bold;
+            height: 50px;
+            width: 230px;
+            background-color: transparent;
+            border: 2px solid white;
+            text-align: center;
+            padding-top: 12px;
+        }
+        #the{
+             height: 100vh;
+            width: 100vw;
+            position: absolute;
+            margin-top: 130px;
+            object-fit: cover;
+            display: block;
+        }
+        #the img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        #thex{
+            position: relative;
+            margin-top: 200px;
+            color: white;
+            letter-spacing: 5px;
+            margin-left:50px;
+            font-size: 35px;
+            font-style: bold;
+        }
+        #thex1{
+            position: relative;
+            margin-top: 30px;
+            color: white;
+            letter-spacing: 5px;
+            margin-left:50px;
+            font-size: 35px;
+            font-size: 180px;
+            transform: scaley(1.5);
+            line-height: 1.2;
+        }
+        #thex2{
+             position: relative;
+            margin-top: 20px;
+            color: white;
+            /* letter-spacing: 5px; */
+            margin-left:50px;
+            font-size: 25px;
+        }
+        #thex3{
+            position: relative;
+            margin-top: 20px;
+            color: white;
+            /* letter-spacing: 5px; */
+            margin-left:50px;
+            font-size: 25px;
+        }
+        #thex4{
+             position: relative;
+            margin-top: 20px;
+            color: white;
+            /* z-index: 10; */
+            /* letter-spacing: 3px; */
+            margin-left:50px;
+            font-size: 18px;
+            font-style: bold;
+            height: 50px;
+            width: 230px;
+            background-color: transparent;
+            border: 2px solid white;
+            text-align: center;
+            padding-top: 12px;
+        }
+        #end>img{
+            height: 500px;
+            width: 700px;
+           padding-top: 100px;
+           padding-left: 100px;
+        }
+        .ending{
+            margin-top: -250px;
+            margin-left: 770px;
+        }
+        #last{
+            font-size: 30px;
+        }
+        #last2{
+            font-size: 20px;
+            margin-top: 15px;
+        }
+        #last3{
+            font-size: 20px;
+            margin-top: 5px;
+        }
+        #last4{
+            font-size: 20px;
+            margin-top: 5px;
+        }
+        #last5{
+            font-size: 18px;
+            margin-top: 15px;
+        }
+        #last5:hover{
+            color: #1c69d4;
+        }
+         #dropdown{
+            height: 350px;
+            width: 100vw;
+            background-color:white;
+           position: absolute;
+            /* border: 2px solid black; */
+            top: 80px;
+            right: -90px;
+            /* top: 0px; */
+            /* text-decoration: transparent; */
+            display: none;
+          }
+          .navopt:hover #dropdown{
+            display: block;
+          }
+          
+    </style>
+</head>
+
+<body>
+
+    <div id="picture">
+        <img style="height: 100%;width: 100%;" src="../../Assets/bmw1.webp " alt="">
+        <div id="discover">
+            <div>
+                <h4>Discover now</h4>
+            </div>
+        </div>
+        <div id="call"><i class="fa-solid fa-phone"></i></div>
+        <!-- <span>Contact</span> -->
+
+    </div>
+    <nav>
+        <img src="../../Assets/bmw1logo.svg" alt="">
+        <div id="headitems">
+            <div><a href="">All Models</a></div>
+            <div><a href="">Electric</a></div>
+            <div class="navopt"><a href="">Visit Online Store</a>
+            <div id="dropdown">
+                <h1 style="padding-left: 60px;padding-top: 50px;">Shop Online</h1>
+                <h6 style="padding-left: 60px;padding-top: 40px;font-size: 16px;">Buy New Vehicle</h6>
+                <h6 style="padding-left: 60px;padding-top: 10px;font-size: 16px;">Configure Your Own</h6>
+                <h6 style="padding-left: 60px;padding-top: 10px;font-size: 16px;">Current Offers</h6>
+                <h6 style="padding-left: 60px;padding-top: 10px;font-size: 16px;">BMW Connected Drive Store</h6>
+            </div>
+            </div>
+            <div class="navopt"><a href="">More BMW</a>
+            <div id="dropdown">
+                <h1 style="padding-left: 60px;padding-top: 50px;">Shop Online</h1>
+                <h6 style="padding-left: 60px;padding-top: 40px;font-size: 16px;">Buy New Vehicle</h6>
+                <h6 style="padding-left: 60px;padding-top: 10px;font-size: 16px;">Configure Your Own</h6>
+                <h6 style="padding-left: 60px;padding-top: 10px;font-size: 16px;">Current Offers</h6>
+                <h6 style="padding-left: 60px;padding-top: 10px;font-size: 16px;">BMW Connected Drive Store</h6>
+            </div> </div>
+
+        </div>
+        <div id="user_actions">
+            <div id="profile">
+                <div id="profile_icon"><i class="fa-regular fa-user"></i></div>
+            </div>
+            <div id="bag">
+                <div id="bag_icon"><i class="fa-solid fa-cart-arrow-down"></i></i></div>
+            </div>
+            <div id="wishlist">
+                <div id="wishlist_icon"><i class="fa-regular fa-heart"></i></div>
+            </div>
+            <div id="location_icon">
+                <div id="location_icon"><i class="fa-solid fa-location-dot"></i></div>
+            </div>
+        </div>
+    </nav>
+    <div class="find">
+        <h1>Find your BMW.</h1>
+    </div>
+    <div class="bmwicons">
+        <img src="../../Assets/bm.png" alt="">
+        <img src="../../Assets/bmw3.png" alt="">
+        <img src="../../Assets/bmw2.png" alt="">
+    </div>
+    <div class="inf">
+        <h3>Find a new car.</h3>
+        <h3>Book a test drive.</h3>
+        <h3>Build your own.</h3>
+    </div>
+    <!-- <div class="maininf"> -->
+    <div class="infbox">
+        <p>Search now</p>
+    </div>
+    <div class="infbox1">
+        <p>Request a test drive</p>
+    </div>
+    <!-- </div> -->
+    <div class="infbox2">
+        <p>Configure & price</p>
+    </div>
+    <video src="../../Assets/videoplayback (2).mp4"  muted autoplay loop></video>
+    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/YAFUyPp_238?si=c7p0hIP62BPIZylv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
+    <div id="videotext">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap');
+        </style>THE NEW
+    </div>
+    <div id="videotext1">
+        <h1>2</h1>
+    </div>
+    <div id="videotext2">
+        <h2> LEAVE BORING BEHIND.</h2>
+    </div>
+    <div id="skip"> Skip Boring</div>
+
+    <div class="luxury"><img src="../../Assets/luxury.fast.forward" alt=""></div>
+    <div class="lux">LUXURY,FAST,FORWARD.</div>
+    <div class="luxu">THE BMW 7 RANGE.</div>
+    <div class="luxur">Discover now</div>
+    
+    <div id="the"><img src="../../Assets/THE X1.webp" alt=""></div>
+    <div id="thex">THE</div>
+    <div id="thex1">iX1</div>
+    <div id="thex2">LONG WHEELBASE</div>
+    <div id="thex3">DOMINATE EVERYDAY.YOUR WAY.</div>
+    <div id="thex4">Discover now</div>
+
+    <div id="end"><img src="../../Assets/bmw-last.webp" alt=""></div>
+    <div class="ending">
+    <div id="last">BMW Special Offers.</div>
+    <div id="last2">Monthly EMI starting from RS.32,222*/Month.</div>
+    <div id="last3">Check Out similar BMW finance</div>
+    <div id="last4">offers available across the BMW range.</div>
+    <div id="last5">Topic link  ></div>
+    </div>
+</body> 
+
+</html>
